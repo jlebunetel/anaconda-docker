@@ -1,0 +1,22 @@
+version: "3.8"
+
+x-anaconda-build-env:
+  &anaconda-build-env
+  USER_NAME: "${USER}"
+  USER_UID: "${CURRENT_UID}"
+  USER_GID: "${CURRENT_GID}"
+
+services:
+  anaconda:
+    build:
+      context: .
+      dockerfile: ./anaconda/Dockerfile
+      args:
+        <<: *anaconda-build-env
+    image: "${USER}/anaconda3"
+    ports:
+      - "${JUPYTER_PORT}:8888"
+    command:
+      - "sleep"
+      - "infinity"
+    restart: unless-stopped
