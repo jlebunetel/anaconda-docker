@@ -42,7 +42,7 @@ clean: ## Cleans environment (Docker containers and volumes).
 
 .PHONY: shell
 shell: ## Starts a shell in the running container.
-	@docker exec -it anaconda_$(USER)_anaconda_1 /bin/bash
+	@docker exec -it anaconda_$(USER)_anaconda_1 /usr/bin/fish
 
 .PHONY: notebook
 notebook: ## Starts jupyter notebook in the running container.
