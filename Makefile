@@ -10,6 +10,8 @@ default: help
 
 .PHONY: quickstart
 quickstart: ## Runs all services.
+	mkdir -p .conda
+	mkdir -p sandbox
 	docker-compose \
 		--project-name anaconda_$(USER) \
 		up \

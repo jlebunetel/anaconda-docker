@@ -14,6 +14,9 @@ services:
       args:
         <<: *anaconda-build-env
     image: "${USER}/anaconda3"
+    volumes:
+      - ./sandbox/:/home/${USER}/sandbox/
+      - ./.conda/:/home/${USER}/.conda/
     ports:
       - "${JUPYTER_PORT}:8888"
     command:

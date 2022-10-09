@@ -15,3 +15,7 @@ RUN useradd ${USER_NAME} --non-unique --uid ${USER_UID} --gid ${USER_GID} --crea
 USER ${USER_NAME}
 WORKDIR /home/${USER_NAME}
 RUN conda init fish
+
+# Create some default directories
+RUN mkdir -p .conda
+RUN mkdir -p sandbox
