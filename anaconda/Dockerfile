@@ -18,4 +18,4 @@ RUN conda init fish
 
 # Create some default directories
 RUN mkdir -p .conda
-RUN mkdir -p sandbox
+RUN mkdir -p sandbox/notebooks

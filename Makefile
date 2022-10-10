@@ -11,7 +11,7 @@ default: help
 .PHONY: quickstart
 quickstart: ## Runs all services.
 	mkdir -p .conda
-	mkdir -p sandbox
+	mkdir -p sandbox/notebooks
 	docker-compose \
 		--project-name anaconda_$(USER) \
 		up \
@@ -48,7 +48,7 @@ shell: ## Starts a shell in the running container.
 
 .PHONY: notebook
 notebook: ## Starts jupyter notebook in the running container.
-	@docker exec -it anaconda_$(USER)_anaconda_1 jupyter notebook --ip=0.0.0.0
+	@docker exec -it anaconda_$(USER)_anaconda_1 jupyter notebook --ip=0.0.0.0 --no-browser -y --notebook-dir=/home/$(USER)/sandbox/notebooks/
 
 .PHONY: help
 help: ## Lists all the available commands.
